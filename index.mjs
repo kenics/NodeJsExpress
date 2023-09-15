@@ -12,8 +12,18 @@ app.use((req, res, next) => {
 
 
 app.get('/hello',(req,res)=>{
-  res.send("hello server");
+  const reqData = req.query.param
+  res.send("hello server[" + reqData + "]");
 });
+
+app.get('/connect',(req,res)=>{
+  res.send("connect");
+});
+
+app.get('/home',(req,res)=>{
+  res.send("home");
+});
+
 
 const webServer = http.createServer(app);
 webServer.listen(3000,()=>{
